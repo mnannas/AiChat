@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Chatbot</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Font Awesome for GitHub icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Modern CSS with CSS variables for easy theming */
         :root {
@@ -159,6 +161,38 @@
             text-align: right;
         }
 
+                footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            color: #6c757d;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-heart {
+            color: #e25555;
+            font-size: 1.2em;
+        }
+        
+        .footer-name {
+            font-weight: 600;
+            color: #4361ee;
+        }
+        
+        @media (max-width: 600px) {
+            footer {
+                font-size: 0.9rem;
+                padding: 1rem;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 600px) {
             body {
@@ -174,7 +208,7 @@
     </style>
 </head>
 <body>
-    <h1>AI Chatbot</h1>
+    <h1>AI Mini Chatbot</h1>
     <div id="chat-container">
         <!-- Chat messages will appear here -->
         <div id="chat-box">
@@ -190,6 +224,19 @@
             <button id="send-btn">Send</button>
         </div>
     </div>
+
+     <!-- Footer section -->
+    <footer>
+        <div class="footer-content">
+            <span>Created with</span>
+            <span class="footer-heart">♥</span>
+            <span>by</span>
+            <span class="footer-name">mn_annas</span>
+            <a href="https://github.com/mnannas" target="_blank" aria-label="GitHub Profile">
+                <i class="fab fa-github footer-github"></i>
+            </a>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
