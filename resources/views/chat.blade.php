@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="{{ asset('images/image2.png') }}" type="image/x-icon">
+    {{-- <link rel="icon" href="{{ asset('images/image2.png') }}" type="image/x-icon"> --}}
+    <link rel="icon" href="https://aichat-tlvh.onrender.com/images/image2.png" type="image/x-icon">
     <title>AI Mini Chatbot</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Font Awesome and Google Fonts -->
