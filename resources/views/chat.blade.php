@@ -165,6 +165,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-top: 0.5%;
         }
 
         #send-btn:hover {
@@ -241,6 +242,209 @@
             transform: translateY(-50%);
             font-size: 0.7rem;
             color: var(--light-text);
+        }
+
+        /* Add these to your existing styles */
+        .ai-message h3 {
+            color: var(--ai-color);
+            margin: 0.8rem 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .ai-message pre {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.8rem 0;
+            border-left: 3px solid var(--ai-color);
+        }
+
+        .ai-message code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: rgba(114, 9, 183, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .ai-message hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 1rem 0;
+        }
+
+        /* Syntax highlighting for code blocks */
+        .ai-message .language-php {
+            color: #4f5b93;
+        }
+        .ai-message .language-javascript {
+            color: #f8dc3d;
+        }
+        .ai-message .language-python {
+            color: #3572A5;
+        }
+        .ai-message .language-java {
+            color: #b07219;
+        }
+        .ai-message .language-html {
+            color: #e34c26;
+        }
+        .ai-message .language-css {
+            color: #563d7c;
+        }
+
+        /* Enhanced Message Styles */
+        .ai-message {
+            max-width: 90%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .ai-message h3 {
+            color: var(--ai-color);
+            margin: 0.8rem 0 0.5rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .ai-message .code-block {
+            position: relative;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            margin: 0.8rem 0;
+            border-left: 3px solid var(--ai-color);
+        }
+
+        .ai-message pre {
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .ai-message code {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+        }
+
+        .ai-message .copy-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 0.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 4px;
+            padding: 0.3rem 0.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .ai-message .code-block:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .ai-message .copy-btn:hover {
+            background: white;
+        }
+
+        .ai-message .copy-btn i {
+            font-size: 0.8rem;
+        }
+
+        .ai-message hr {
+            border: none;
+            border-top: 1px solid var(--border-color);
+            margin: 1rem 0;
+        }
+
+        .ai-message ul {
+            margin: 0.5rem 0 0.5rem 1.5rem;
+        }
+
+        .ai-message li {
+            margin-bottom: 0.3rem;
+        }
+
+        .ai-message .expand-btn {
+            display: block;
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .ai-message .expand-btn:hover {
+            background-color: #e9ecef;
+        }
+
+        .ai-message .expand-btn i {
+            margin-left: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .ai-message .expand-btn.expanded i {
+            transform: rotate(180deg);
+        }
+
+        /* Syntax highlighting */
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #6a9955;
+        }
+        .token.punctuation {
+            color: #d4d4d4;
+        }
+        .token.property,
+        .token.tag,
+        .token.boolean,
+        .token.number,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #b5cea8;
+        }
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #ce9178;
+        }
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string {
+            color: #d4d4d4;
+        }
+        .token.atrule,
+        .token.attr-value,
+        .token.keyword {
+            color: #569cd6;
+        }
+        .token.function,
+        .token.class-name {
+            color: #dcdcaa;
+        }
+        .token.regex,
+        .token.important,
+        .token.variable {
+            color: #d16969;
         }
 
         /* Footer section */
@@ -454,18 +658,69 @@
                 const messageDiv = document.createElement('div');
                 messageDiv.className = isUser ? 'message user-message' : 'message ai-message';
                 
-                messageDiv.innerHTML = `
-                    ${content}
-                    <span class="timestamp">${getCurrentTime()}</span>
-                `;
+                // For AI messages, allow HTML content (sanitized by backend)
+                if (isUser) {
+                    messageDiv.textContent = content;
+                } else {
+                    messageDiv.innerHTML = content;
+                }
+                
+                messageDiv.innerHTML += `<span class="timestamp">${getCurrentTime()}</span>`;
                 
                 chatBox.appendChild(messageDiv);
                 scrollToBottom();
+                
+                // Initialize interactive elements for AI messages
+                if (!isUser) {
+                    initMessageFeatures(messageDiv);
+                }
                 
                 // Add slight delay for animation
                 setTimeout(() => {
                     messageDiv.style.opacity = '1';
                 }, 10);
+            }
+
+            // Initialize interactive features for AI messages
+            function initMessageFeatures(messageDiv) {
+                // Copy buttons for code blocks
+                messageDiv.querySelectorAll('.copy-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const codeBlock = this.parentElement.querySelector('code');
+                        if (codeBlock) {
+                            navigator.clipboard.writeText(codeBlock.textContent)
+                                .then(() => {
+                                    const originalIcon = this.innerHTML;
+                                    this.innerHTML = '<i class="fas fa-check"></i>';
+                                    setTimeout(() => {
+                                        this.innerHTML = originalIcon;
+                                    }, 2000);
+                                });
+                        }
+                    });
+                });
+
+                // Expand/collapse buttons for long messages
+                messageDiv.querySelectorAll('.expand-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const content = this.previousElementSibling;
+                        if (content.style.display === 'none') {
+                            content.style.display = 'block';
+                            this.innerHTML = 'Show Less <i class="fas fa-chevron-up"></i>';
+                            this.classList.add('expanded');
+                        } else {
+                            content.style.display = 'none';
+                            this.innerHTML = 'Show More <i class="fas fa-chevron-down"></i>';
+                            this.classList.remove('expanded');
+                        }
+                        scrollToBottom();
+                    });
+                });
+
+                // Apply syntax highlighting
+                messageDiv.querySelectorAll('pre code').forEach(block => {
+                    hljs.highlightElement(block);
+                });
             }
 
             // Show typing indicator
@@ -505,9 +760,6 @@
                 showTypingIndicator();
 
                 try {
-                    // Simulate API delay for demo (remove in production)
-                    await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
-                    
                     // Send to server
                     const response = await fetch('/chat', {
                         method: 'POST',
@@ -549,7 +801,28 @@
 
             // Initial focus
             userInput.focus();
+
+            // Load syntax highlighting library
+            const hljsScript = document.createElement('script');
+            hljsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js';
+            hljsScript.onload = () => {
+                hljs.highlightAll();
+            };
+            document.head.appendChild(hljsScript);
+
+            // Load additional language support
+            const hljsLanguages = document.createElement('script');
+            hljsLanguages.src = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/javascript.min.js';
+            document.head.appendChild(hljsLanguages);
         });
     </script>
 </body>
+<!-- Add these before your closing </head> tag -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github.min.css">
+<style>
+.hljs {
+    background: transparent !important;
+    padding: 0 !important;
+}
+</style>
 </html>
