@@ -21,7 +21,8 @@ class ChatController extends Controller
             'Authorization' => 'Bearer ' . env('OPENROUTER_API_KEY'),
             'HTTP-Referer' => 'my-laravel-chatbot (your-email@example.com)',
         ])->post('https://openrouter.ai/api/v1/chat/completions', [
-            'model' => 'deepseek/deepseek-r1:free',
+            'model' => 'deepseek/deepseek-r1-0528:free',
+                 //deepseek/deepseek-r1:free
             'messages' => [
                 [
                     'role' => 'system', 
